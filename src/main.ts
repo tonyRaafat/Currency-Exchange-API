@@ -23,7 +23,6 @@ async function bootstrap() {
   const documentFactory = () =>
     SwaggerModule.createDocument(app, configSwagger);
   SwaggerModule.setup('docs', app, documentFactory);
-  app.setGlobalPrefix('api');
   app.use(cookieParser());
   await app.listen(config.get('PORT') ?? 3000);
 }
