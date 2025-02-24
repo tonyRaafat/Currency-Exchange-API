@@ -23,7 +23,8 @@ async function bootstrap() {
   const documentFactory = () =>
     SwaggerModule.createDocument(app, configSwagger);
   SwaggerModule.setup('docs', app, documentFactory);
-  app.use(cookieParser());
+  const parser = cookieParser();
+  app.use(parser);
   await app.listen(config.get('PORT') ?? 3000);
   console.log('Application is running ');
 }
