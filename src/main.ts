@@ -25,5 +25,6 @@ async function bootstrap() {
   SwaggerModule.setup('docs', app, documentFactory);
   app.use(cookieParser());
   await app.listen(config.get('PORT') ?? 3000);
+  console.log('Application is running ');
 }
 bootstrap();
