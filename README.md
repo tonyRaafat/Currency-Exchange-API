@@ -99,35 +99,4 @@ src/
 └── main.ts             # Application entry point
 ```
 
-## Error Handling
-
-The API uses standard HTTP status codes:
-- 200: Success
-- 400: Bad Request
-- 401: Unauthorized
-- 403: Forbidden
-- 404: Not Found
-- 500: Internal Server Error
-
-## Security
-
-- JWT-based authentication
-- Request rate limiting
-- Input validation
-- CORS enabled
-- Helmet security headers
-
-## Deployment
-
-1. Build the application:
-```bash
-npm run build
-```
-
-2. Set up production environment variables
-
-3. Start the application:
-```bash
-npm run start:prod
-```
 
