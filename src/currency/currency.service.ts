@@ -29,11 +29,7 @@ export class CurrencyService {
       const response = await axios.get(
         `${this.baseUrl}/${this.apiKey}/pair/${fromCurrency}/${toCurrency}/${amount}`,
       );
-      console.log(response);
-
       if (response.data.result !== 'success') {
-        console.log(response.data);
-
         throw new HttpException(
           'Currency conversion failed',
           HttpStatus.BAD_REQUEST,

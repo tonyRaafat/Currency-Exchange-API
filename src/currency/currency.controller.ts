@@ -4,7 +4,7 @@ import { ConvertCurrencyDto } from './dto/convert-currency.dto';
 import { currentUser } from '../auth/decorators/currentUser.decorator';
 import { User } from '../users/entities/user.entity';
 import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
-import { JwtAuthGaurd } from 'src/auth/guards/jwtAuth.guard';
+import { JwtAuthGaurd } from '../auth/guards/jwtAuth.guard';
 
 @ApiTags('currency')
 @ApiBearerAuth()

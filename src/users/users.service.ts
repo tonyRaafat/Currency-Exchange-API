@@ -13,6 +13,7 @@ import {
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { User } from './entities/user.entity';
+import { log } from 'console';
 
 @Injectable()
 export class UsersService {
@@ -51,6 +52,7 @@ export class UsersService {
       if (error instanceof ConflictException) {
         throw error;
       }
+      log(error);
       throw new BadRequestException('Failed to create user');
     }
   }
@@ -88,7 +90,14 @@ export class UsersService {
     }
   }
 
-  async update(updateUserDto: UpdateUserDto, user: User) {
+  async update(
+    updateUserDto: UpdateUserDto,
+    user: User,
+  ): Promise<{
+    success: boolean;
+    message: string;
+    data: User;
+  }> {
     try {
       const existingUser = await this.userRepository.findOne({ _id: user._id });
       if (!existingUser) {
@@ -108,6 +117,10 @@ export class UsersService {
         updateUserDto,
         { new: true, projection: { password: 0, __v: 0 } },
       );
+
+      if (!updatedUser) {
+        throw new NotFoundException('User not found');
+      }
 
       return {
         success: true,

@@ -4,7 +4,6 @@ import {
   Post,
   Body,
   Patch,
-  Param,
   Delete,
   UseGuards,
 } from '@nestjs/common';
@@ -16,7 +15,6 @@ import { User } from './entities/user.entity';
 import { JwtAuthGaurd } from '../auth/guards/jwtAuth.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { RolesGuard } from '../auth/guards/roles/roles.guard';
-import { LocalAuthGaurd } from 'src/auth/guards/localAuth.guard';
 
 @Controller('users')
 export class UsersController {
