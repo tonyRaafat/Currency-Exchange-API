@@ -7,12 +7,7 @@ import { ConflictException, NotFoundException } from '@nestjs/common';
 import { HashUtil } from '../../utils/hash.util';
 import { Role } from '../dto/create-user.dto';
 
-jest.mock('../../utils/hash.util', () => ({
-  HashUtil: {
-    hashPassword: jest.fn().mockResolvedValue('hashedPassword'),
-    comparePassword: jest.fn().mockResolvedValue(true),
-  },
-}));
+jest.mock('../../utils/hash.util');
 
 describe('UsersService', () => {
   let service: UsersService;
